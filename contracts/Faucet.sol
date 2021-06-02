@@ -22,10 +22,10 @@ contract Faucet {
     mapping(address => ClaimSetting) tokenClaimSettings;
 
     // 两次领取的间隔
-    uint256 public defaultInterval = 120 seconds;
+    uint256 public defaultInterval = 3600 seconds;
 
     // 更改默认Claim token的数量
-    uint256 public defaultAmount = 1e18;
+    uint256 public defaultAmount = 1000 * 1e18;
 
     address internal _manager;
 
@@ -120,18 +120,17 @@ contract Faucet {
     }
 
     function claimTokenRegardingSenderBalance(address tokenContractAddress) public {
-        uint256 lastTs = lastTokenClaimRecord[tokenContractAddress][msg.sender];
-        uint256 interval = getClaimInterval(tokenContractAddress);
         uint256 amount = getClaimAmount(tokenContractAddress);
-
-        require(
-            block.timestamp - lastTs > interval,
-            "Claim Interval too short"
-        );
         uint256 balance = IERC20(tokenContractAddress).balanceOf(msg.sender);
         require(
             balance < amount,
             "There is enoungh token balance in sender's wallet"
+        );
+
+        uint256 faucetBalance = IERC20(tokenContractAddress).balanceOf(address(this));
+        require(
+            faucetBalance >= amount,
+            "No enough cfx in token pool. Please notify the faucet admin"
         );
         lastTokenClaimRecord[tokenContractAddress][msg.sender] = block.timestamp;
         IERC20(tokenContractAddress).transfer(msg.sender, amount - balance);
@@ -154,11 +153,6 @@ contract Faucet {
     }
 
     function claimCfxRegardingSenderBalance() public payable {
-        uint256 lastTs = lastCfxClaimRecord[msg.sender];
-        require(
-            block.timestamp - lastTs > defaultInterval,
-            "Claim Interval too short"
-        );
         require(
             msg.sender.balance < defaultAmount,
             "There is enoungh CFX balance in sender's wallet"
