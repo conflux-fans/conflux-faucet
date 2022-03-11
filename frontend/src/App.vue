@@ -154,7 +154,7 @@ export default {
           return "Portal Not Detected";
       }
 
-      return "networkId: " + this.chainId.chainId;
+      return "networkId: " + this.chainId;
     },
     chainId() {
       return this.$store.state.chainId || this.conflux?.chainId;

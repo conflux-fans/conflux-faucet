@@ -28,16 +28,16 @@ const messages = {
         networkError: 'Network Error',
         error: "ERROR",
         transactionError: 'Transaction Error',
-        installationError: 'ConfluxPortal Not Detected',
+        installationError: 'ConfluxPortal or Fluent Wallet Not Detected',
       },
       warning: {
         connectionWarning: 'Please connect to your wallet',
         tokenWarning: 'Please select token',
-        changeNetworkWarning: 'Please change network to Conflux Testnet in Conflux Portal, and then manually refresh page',
-        networkLoadingWarning: 'Network status is on loading or unofficial network is in use，please check it in ConfluxPortal'
+        changeNetworkWarning: 'Please change network to Conflux Testnet in your wallet.',
+        networkLoadingWarning: 'Network status is on loading or unofficial network is in use，please check it in your wallet'
       },
       tooltip: {
-        networkTooltip: 'Change network in ConfluxPortal',
+        networkTooltip: 'Change network in yout wallet',
         faucet: {
           frequency: {
             beg: 'Conflux Testnet Faucet is available every ',
@@ -77,16 +77,16 @@ const messages = {
           networkError: '网络错误',
           error: "错误",
           transactionError: '交易执行错误',
-          installationError: '未检测到 ConfluxPortal',
+          installationError: '未检测到 ConfluxPortal 或 Fluent Wallet',
         },
         warning: {
           connectionWarning: '请连接钱包',
           tokenWarning: '请选择Token',
-          changeNetworkWarning: '请在 ConfluxPortal 中切换至测试网, 并手动刷新页面',
-          networkLoadingWarning: '当前网络情况仍在加载中或使用了非官方的测试网络，请在 ConfluxPortal 中确认当前网络情况'
+          changeNetworkWarning: '请在钱包中切换至测试网',
+          networkLoadingWarning: '当前网络情况仍在加载中或使用了非官方的测试网络，请在钱包中确认当前网络情况'
         },
         tooltip: {
-          networkTooltip: '在 ConfluxPortal 中切换网络',
+          networkTooltip: '在钱包中切换网络',
           faucet: {
             frequency: {
               beg: 'Conflux测试网水龙头每 ',

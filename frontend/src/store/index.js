@@ -56,8 +56,11 @@ const store = new Vuex.Store({
           state.chainId = chainId
         })
 
-        state.conflux.on("chainChanged", () => {
-          location.reload()
+        state.conflux.on("chainChanged", (chainId) => {
+          console.log("chain changed")
+          console.log(chainId)
+          if (state.chainId && state.chainId != chainId)
+            location.reload()
         })
       }
     },
