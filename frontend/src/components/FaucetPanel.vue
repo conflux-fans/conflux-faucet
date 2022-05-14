@@ -541,7 +541,7 @@ export default {
         pendingTx = tx.sendTransaction({
           from: this.account,
           value: 0,
-          gasPrice: 1,
+          // gasPrice: 1000000000,
           gas: estimate.gasLimit
         });
 
@@ -612,7 +612,7 @@ export default {
           pendingTx = tx.sendTransaction({
             from: this.account,
             value: 0,
-            gasPrice: 1,
+            // gasPrice: 1000000000,
             gas: estimate.gasLimit
           });
         } else {
@@ -620,7 +620,7 @@ export default {
             from: this.account,
             value: this.fromCfxToDrip(amount),
             to: this.faucetContract.address,
-            gasPrice: 1,
+            // gasPrice: 1000000000,
             gas: 31000
           });
         }
