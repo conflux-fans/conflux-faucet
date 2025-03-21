@@ -28,7 +28,7 @@ const messages = {
         networkError: 'Network Error',
         error: "ERROR",
         transactionError: 'Transaction Error',
-        installationError: 'ConfluxPortal or Fluent Wallet Not Detected',
+        installationError: 'Fluent Wallet Not Detected',
       },
       warning: {
         connectionWarning: 'Please connect to your wallet',
@@ -77,7 +77,7 @@ const messages = {
           networkError: '网络错误',
           error: "错误",
           transactionError: '交易执行错误',
-          installationError: '未检测到 ConfluxPortal 或 Fluent Wallet',
+          installationError: '未检测到 Fluent Wallet',
         },
         warning: {
           connectionWarning: '请连接钱包',
